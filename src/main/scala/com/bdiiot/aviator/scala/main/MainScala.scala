@@ -13,10 +13,11 @@ object MainScala {
     val yourName: String = "World!"
     var env: util.Map[String, AnyRef] = new util.HashMap[String, AnyRef]
     env.put("yourName", yourName)
-    System.out.println(AviatorEvaluator.execute("'Hello ' + yourName", env))
+    expression = "'Hello ' + yourName"
+    System.out.println(AviatorEvaluator.execute(expression, env))
     // Hello World!
 
-    System.out.println(AviatorEvaluator.exec("'Hello ' + yourName", yourName))
+    System.out.println(AviatorEvaluator.exec(expression, yourName))
     // Hello World!
 
     expression = "status == 0 && user_id != 10646 && order_id != 10648"

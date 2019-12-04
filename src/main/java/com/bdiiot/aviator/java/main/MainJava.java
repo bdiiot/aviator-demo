@@ -13,17 +13,18 @@ public class MainJava {
         // true
 
         String yourName = "World!";
-        Map<String, Object> env = new HashMap<String, Object>();
+        Map<String, Object> env = new HashMap<>();
         env.put("yourName", yourName);
-        System.out.println(AviatorEvaluator.execute("'Hello ' + yourName", env));
+        expression = "'Hello ' + yourName";
+        System.out.println(AviatorEvaluator.execute(expression, env));
         // Hello World!
 
-        System.out.println(AviatorEvaluator.exec("'Hello ' + yourName", yourName));
+        System.out.println(AviatorEvaluator.exec(expression, yourName));
         // Hello World!
 
         expression = "status == 0 && user_id != 10646 && order_id != 10648";
         Expression compiledExp = AviatorEvaluator.compile(expression);
-        env = new HashMap<String, Object>();
+        env = new HashMap<>();
         env.put("status", 0);
         env.put("user_id", 10000);
         env.put("order_id", 10000);
